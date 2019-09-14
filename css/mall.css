@@ -1,0 +1,279 @@
+﻿html {
+    font-size: 16px;
+    height: 100%;
+}
+
+body{
+    max-width:500px;
+    margin:0 auto;
+}
+
+li{
+    list-style:none;
+}
+
+/*小屏*/
+@media only screen and (min-width: 100px) {
+    html {
+        font-size: 14px;
+    }
+}
+/*iphone 6*/
+@media only screen and (min-width: 375px) {
+    html {
+        font-size: 14px;
+    }
+}
+/*iphone 6 plus*/
+@media only screen and (min-width: 414px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.main-color{
+    color:#757380;
+}
+
+#title{
+    color:#fff;
+    background-color:#FF5000;
+    font-size:1.5rem;
+    padding:10px 0;
+    margin-top:0;
+    margin-bottom:0;
+    text-align:center;
+    vertical-align:middle;
+}
+
+#title a{
+    color:#fff;
+}
+
+#searchTypeContainer{
+    padding:.7rem 0 .7rem 0;
+    padding-left:5rem;
+    color:#777777;
+    background-color:#fff;
+}
+
+#searchTypeContainer label{
+    color:#9656f3;
+    font-size:1rem;
+    font-weight:bold;
+}
+
+#btnCategory{
+    background-color: #F2F4F5;
+    color:#ffffff;
+}
+
+#btnCategory i:after{
+    content:"搜索"
+}
+
+#goHome{
+    color:#9656f3;
+}
+
+#category{
+    background-color:#fff;
+    border-bottom:1px solid #e9e6ed;
+    padding-bottom:.7rem;
+}
+
+#category ul{
+    padding:10px;
+    display:none;
+}
+
+#category li{
+    list-style:none;
+    float:left;
+    width:20%;
+    margin:5px 0;
+}
+
+#category li span{
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin: 0 auto;
+}
+
+#category li img{
+    width: 40px;
+    height: 40px;
+}
+
+#category li strong{
+    font-weight: 400;
+    display: block;
+    text-align: center;
+    padding-top: 5px;
+    font-size: 12px
+}
+
+#goodsList{
+    padding:0;
+    margin-left: 7px;
+    margin-top:10px;
+}
+
+#goodsList li{
+    margin:0;
+    border-bottom:1px dashed #e9e6ed;
+    width:49%;
+    height:18.5rem;
+    float:left;
+}
+
+#goodsList .img-box{
+    padding:5px 0 5px 5px;
+    /*width:100%;*/
+     width:12rem;
+    height:12rem;
+}
+
+#goodsList li .img-box img{
+    width:100%;
+    height:100%;
+}
+
+#goodsList .content{
+    height:4rem;
+    width:100%;
+}
+
+#goodsList .content i{
+    margin-right:5px;
+}
+
+#goodsList .content h3{
+    font-size:.75rem;
+    color:#777777;
+    margin-top:5px;
+    overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */
+    text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+    white-space:nowrap;/* 不换行 */
+}
+
+#goodsList .detail{
+    width:100%;
+}
+
+#goodsList .detail div{
+    font-size:.75rem;
+    float:left;
+    color:#9b9b9b;
+}
+
+#goodsList .detail .original-price{
+    margin-right:10px;
+}
+
+#goodsList .detail .sales{
+}
+
+#goodsList .detail .jifen{
+    color:#23a54a;
+    clear:both;
+}
+
+#goodsList .detail .shop{
+    clear:both;
+    font-style:italic;
+    padding-top:5px;
+}
+
+#goodsList .detail .current-price{
+    clear:left;
+}
+
+#goodsList .detail .current-price .img-tag{
+    display:none;
+}
+
+#goodsList .detail .current-price span:nth-child(2):before{
+    content:"券后：";
+    color:#a3a3a3;
+}
+
+#goodsList .detail .current-price span:nth-child(2){
+    color:#f40;
+    font-size:.75rem;
+}
+
+#goodsList .detail .current-price span:nth-child(3){
+    color:#f40;
+    font-size:.75rem;
+    font-weight:bold;
+}
+
+#goodsList .detail .get-quan{
+    display:block;
+    float:right;
+    background: #9656f3;
+    color:#fff;
+    padding: 2px 4px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: .8rem;
+    text-decoration:none;
+    z-index:1000;
+}
+
+#loadingTip{
+    border:1px dotted #9656f3;
+    color:#9b9b9b;
+    padding:5px 0;
+}
+
+#quanDetailTitle{
+    background-color:#FF5000;
+}
+
+#quanDetailTitle h4{
+    color:#fff;
+}
+
+#quanDetail{
+    width: 100%;
+    border:1px dotted #DEDCDC;
+    padding:10px;
+    color:#9b9b9b;
+}
+
+#jifen{
+    color:#23a54a;
+    font-weight:bold;
+}
+
+#parentJifenUser{
+    color:#fff;
+    font-weight:bold;
+    font-style:italic;
+    background-color:#fed981;
+    border-radius:5px;
+    padding:3px;
+    margin-bottom:5px;
+}
+
+#flowBtn1{
+    display:block;
+    width:36px;
+    height:36px;
+    border-radius:18px;
+    background-color:#777777;
+    position:fixed;
+    right:10px;
+    bottom:6rem;
+    opacity:0.8;
+}
+
+#flowBtn1 i{
+    margin-top:8px;
+    margin-left:3px;
+    font-size:30px;
+    color:#353434;
+}

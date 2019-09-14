@@ -1,0 +1,25 @@
+﻿#noticeContainer{
+    background-color: #FCF3e2;
+    margin-top:5px;
+    margin-bottom:5px;
+    border-radius:15px;
+    padding:5px 0 5px 0;
+}
+
+#notice {
+    overflow: hidden;
+    color: #FF6A00;
+    margin-left:5px;
+    margin-right:5px;
+}
+
+#noticeIcon {
+    width: 15px;
+    height: 22px;
+    float: left;
+    background-image: "cms-img.png";
+    background-position: -193px -27px;
+    background-repeat: no-repeat;
+    margin: -3px 0 0 5px;
+    background-size: 300px auto;
+}
