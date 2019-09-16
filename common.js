@@ -96,7 +96,9 @@ function calJifen(coupon) {
     if (jifen <= 0) return '-';
     else return jifen;
 }
-var api_url ="http://api.tb.52cmg.cn";
+// var api_url ="http://127.0.0.1:8081";
+var api_url ="https://api.thegun.cn";
+//var api_url ="http://api.tb.52cmg.cn";
 var version = "1.0.0.1";
 function loadCoupons() { 
 
@@ -104,8 +106,8 @@ function loadCoupons() {
     $.ajax({
         url: api_url+"/api/alimama.asmx/serch_coupon",
         type: 'POST',
-        dataType: "jsonp",
-        data: "title=" + escape($("#keyword").val())+"&page="+page+"&pid="+getQueryString("pid")+"&cat="+"&v="+version,
+        //dataType: "jsonp",
+        data: "title=" + encodeURIComponent($("#keyword").val())+"&page="+page+"&pid="+getQueryString("pid")+"&cat="+"&v="+version,
         async: true,
         success: function (result) {
 			if(!result.ok)
@@ -232,8 +234,8 @@ function getQuan() {
     $.ajax({
         url: api_url+"/api/alimama.asmx/create_buy",
         type: 'POST',
-        dataType: "jsonp",
-        data: "text=" + escape(good.title) + "&item_id=" + good.num_iid + "&img=" + escape(good.pict_url)+"&pid="+getQueryString("pid")+"&v="+version,
+        // dataType: "jsonp",
+        data: "text=" + encodeURIComponent(good.title) + "&item_id=" + good.num_iid + "&img=" + encodeURIComponent(good.pict_url)+"&pid="+getQueryString("pid")+"&v="+version,
         async: true,
         success: function (result) {
             if (!result.ok) {

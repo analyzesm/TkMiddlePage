@@ -1,0 +1,136 @@
+﻿
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0,user-scalable=0;">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="//cdn.jsdelivr.net/gh/analyzesm/TkMiddlePage@1.0/favicon.ico" type="image/x-icon" />
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    
+    <title>全网内部优惠券</title>
+    <!-- font-awesome(Nuget) http://fontawesome.io/icons/ -->
+	<link href="//cdn.jsdelivr.net/gh/analyzesm/TkMiddlePage@1.0/font-awesome.min.css" rel="stylesheet">
+    <!--<link href="http://c.cms.thegun.cn/static/font-awesome.min.css" rel="stylesheet" />-->
+    <!-- jQuery(Nuget) -->
+	<script src="//cdn.jsdelivr.net/gh/analyzesm/TkMiddlePage@1.0/jquery.min.js"></script>
+    <!-- <script src="//upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.3.min.js"></script> -->
+    <!-- Bootstrap(Nuget) -->
+    <link href="//cdn.jsdelivr.net/gh/analyzesm/TkMiddlePage@1.0/css/m-index.css" rel="stylesheet" />
+    <link href="//cdn.jsdelivr.net/gh/analyzesm/TkMiddlePage@1.0/css/new-mystyle.css" rel="stylesheet" />
+	
+	<link href="//cdn.jsdelivr.net/gh/analyzesm/TkMiddlePage@1.0/css/bootstrap.min.css" rel="stylesheet">
+	<script src="//cdn.jsdelivr.net/gh/analyzesm/TkMiddlePage@1.0/bootstrap.min.js"></script>
+    <!--<link href="http://c.cms.thegun.cn/static/css/bootstrap.min.css" rel="stylesheet" />-->
+    <!--<script src="http://c.cms.thegun.cn/static/bootstrap.min.js"></script>-->
+    <!-- bootbox(Nuget-bootbox) http://bootboxjs.com/ -->
+	<script src="//cdn.jsdelivr.net/gh/analyzesm/TkMiddlePage@1.0/bootbox.min.js"></script>
+    <!--<script src="http://c.cms.thegun.cn/static/bootbox.min.js"></script>-->
+</head>
+
+<body>
+<script>
+    jifenRatioService=true;
+    shopJifenRatio=30;
+    shopShowJifenRatio=true;
+    dataokeBagService=false;
+    mescrollPlugin = null;//上拉刷新插件
+</script>
+<script src="//cdn.jsdelivr.net/gh/analyzesm/TkMiddlePage@1.0/clipboard.js"></script>
+<!--<script src="http://c.cms.thegun.cn/static/clipboard.js"></script>-->
+<script src="//cdn.jsdelivr.net/gh/analyzesm/TkMiddlePage@1.0/jquery.lazyload.min.js"></script>
+<!--<script src="http://c.cms.thegun.cn/static/jquery.lazyload.min.js"></script>-->
+<link href="//cdn.jsdelivr.net/gh/analyzesm/TkMiddlePage@1.0/mescroll.min.css" rel="stylesheet" />
+<script src="//cdn.jsdelivr.net/gh/analyzesm/TkMiddlePage@1.0/mescroll.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/analyzesm/TkMiddlePage@1.0/jquery.marquee.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/analyzesm/TkMiddlePage@1.0/common.js?r=1.7"></script>
+<script src="//cdn.jsdelivr.net/gh/analyzesm/TkMiddlePage@1.0/mode_shop.js"></script>
+<link href="//cdn.jsdelivr.net/gh/analyzesm/TkMiddlePage@1.0//common.css" rel="stylesheet" />
+<link href="//cdn.jsdelivr.net/gh/analyzesm/TkMiddlePage@1.0/css/mall.css" rel="stylesheet" />
+
+<input id="uid" type="hidden" value="12331"/>
+<input id="mallId" type="hidden" value="518" />
+
+<div class="sqt_index page menu_content">
+   		 <div class="sqt_header">
+        <img src="//cdn.jsdelivr.net/gh/analyzesm/TkMiddlePage@1.0/img/sqt_bg2.png" alt="" style="width:100%;">
+        <div class="sqt_box">
+            <div class="search_box cf">
+                <form class="fl search_info" id="search_form" action="javascript:return true;">
+                    <i class="icons icon_search"></i>
+                    <input type="search" placeholder="输入您想买的宝贝名(如:电风扇)" id="keyword" name="keyword" value="" autocomplete="off"><i class="icons icon_clear" id="clear_text"></i>
+                </form>
+                <div class="fr go_search">
+                		<button id="btnCategory" onclick="loadCouponsByKeyword()" style="width: 100%; background-color:Transparent ; border-style: none;  outline: none; " type="button">搜索</button>
+                </div>
+                <!--<div class="fr go_search" onclick="loadCouponsByKeyword()" id="btnCategory">找券</div>-->
+                <!-- 搜索栏 -->
+                <div class="search_list" id="search_list_box">
+                    <ul id="search_list">
+                    </ul>
+                    <div class="search_do border_t cf">
+                        <div class="fl" id="delete_cookie">
+                            <i class="icons icon_delete"></i>清除搜券记录
+                        </div>
+                        <span class="fr" id="close_search" onclick="close()">关闭</span>
+                    </div>
+                </div>
+                <!-- /搜索栏 -->
+                <!-- 黏贴板 -->
+                <div class="copy_box" id="copy_box">
+                    <i class="arrow_top"></i>
+                    <p class="com_ell">你可能想找 : <span id="copy_info"></span></p>
+                    <div class="close_box" id="close_box"><i class="icons icon_close2"></i></div>
+                </div>
+                <!-- /黏贴板 -->
+            </div>
+            <p class="sqt_number">如果一些关键词无结果，尝试换其他关键词</p>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid" >
+    <!--<h1 id="title" class="row"><a href="#">内部优惠券</a></h1>-->
+
+    <div id="category"  class="row">
+        <!--<div class="col-xs-12 input-group" >
+            <input id="keyword" name="keyword" type="text" class="form-control" placeholder="输入关键词搜索优惠券商品...">
+            <span class="input-group-btn">
+                <button id="btnCategory" onclick="loadCouponsByKeyword()" class="btn btn-default" type="button">搜索</button>
+                
+            </span>
+        </div>-->
+
+    </div>
+        <div id="noticeContainer" class="row">
+            <span id="noticeIcon"></span>
+            <div id="notice" class="col-xs-11">亲,优惠券都有时间和数量限制，领取成功后尽快下单哦。</div>
+        </div>
+    <div id="goodsListContainer" class="row">
+        <ul id="goodsList"></ul>
+    </div>
+</div>
+
+
+<div id="dlgQuan" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div id="quanDetailTitle" class="modal-header">
+                <button class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">通过独家优惠券购买</h4>
+            </div>
+            <div class="modal-body">
+                <p class="main-color">【淘口令购买】长按框内 &gt; 全选 &gt; 复制</p>
+                <p id="quanDetail"></p>
+                <span id="jifen"></span>
+            </div>
+            <div class="text-center">
+                <button id="btnCopy" data-clipboard-text="" class="btn btn-danger" style="margin-bottom:5px;">复制口令</button>
+                <button id="btnCopyPc"  data-clipboard-text=""  class="btn btn-danger" onclick="btnCopyPcClick()" style="margin-bottom:5px;" >浏览器跳转</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
